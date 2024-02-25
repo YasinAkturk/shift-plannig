@@ -75,11 +75,6 @@ export default {
       type: Array,
     },
   },
-  watch: {
-    alertDialog(newValue, oldValue) {
-      console.log(newValue)
-    }
-  },
   data() {
     return {
       alertText: "",
@@ -158,7 +153,6 @@ export default {
           }
         }
       } else {
-        console.log("vRDİYa seçilmedi")
         this.alertDialog = true;
         this.alertText =
           "Vardiya seçimi yapmadınız. Lüften önce vardiya seçiniz.";
