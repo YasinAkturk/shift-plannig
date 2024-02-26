@@ -1,18 +1,19 @@
 <template>
   <v-app>
-    <v-main v-if="date.length > 0" style="padding: 0px 50px; margin-top: 100px">
+    <v-main v-if="date.length > 0" class="main-container">
       <h4 class="mb-5">Vardiya Planlama</h4>
-      <v-row class="mb-5">
-        <v-col>
+      <v-row class="ma-0 mb-5">
+        <v-col cols="12" md="6" :class="$vuetify.display.width > 960 ? 'd-flex flex-column justify-start align-start pa-0' : 'd-flex flex-column justify-center align-center'">
           <StoreCard v-once/>
         </v-col>
         <v-col
-          cols="4"
-          class="d-flex flex-column justify-center"
+          cols="12"
+          md="6"
+          class="d-flex flex-column justify-center align-center pa-0"
           style="gap: 10px"
         >
-          <VueDatePicker v-model="date" :format="format" week-picker :clearable="false" auto-apply/>
-          <div class="d-flex justify-center" style="gap: 20px">
+          <VueDatePicker class="datepicker" v-model="date" :format="format" week-picker :clearable="false" auto-apply/>
+          <div class="d-flex justify-center flex-wrap" style="gap: 20px">
             <CustomButton
               buttonType="primary"
               buttonText="Kaydet"
@@ -33,7 +34,7 @@
         </v-col>
       </v-row>
       <v-radio-group v-model="radios" inline>
-        <div class="d-flex" style="gap: 15px">
+        <div class="d-flex flex-wrap justify-center" style="gap: 15px">
           <CustomRadio
             v-for="listItem in radioList"
             :type="listItem.type"
@@ -47,6 +48,23 @@
   </v-app>
 </template>
 <style>
+.main-container{
+  margin: 100px auto 0px;
+  padding: 50px !important;
+}
+@media only screen and (max-width: 550px) {
+  .main-container {
+    padding: 10px !important;
+  }
+}
+.v-table > .v-table__wrapper > table {
+  width: 1440px;
+  border-spacing: 0;
+}
+.datepicker{
+  width: 100%;
+  max-width: 550px; 
+}
 .v-table > .v-table__wrapper > table > tbody > tr > td,
 .v-table > .v-table__wrapper > table > thead > tr > td,
 .v-table > .v-table__wrapper > table > tfoot > tr > td {
@@ -166,17 +184,17 @@ export default {
         },
       ],
       tableHeaders: [
-        { title: "Personel", value: "employee" },
-        { title: "Denk", value: "equivalent" },
-        { title: "Hedef", value: "aim" },
-        { title: "Plan", value: "plan" },
-        { title: "", value: "dayOne" },
-        { title: "", value: "dayTwo" },
-        { title: "", value: "dayThree" },
-        { title: "", value: "dayFive" },
-        { title: "", value: "dayFour" },
-        { title: "", value: "daySix" },
-        { title: "", value: "daySeven" },
+        { title: "Personel", value: "employee", width: 100 },
+        { title: "Denk", value: "equivalent", width: 100 },
+        { title: "Hedef", value: "aim", width: 100 },
+        { title: "Plan", value: "plan", width: 100 },
+        { title: "", value: "dayOne", width: 100 },
+        { title: "", value: "dayTwo", width: 100 },
+        { title: "", value: "dayThree", width: 100 },
+        { title: "", value: "dayFive", width: 100 },
+        { title: "", value: "dayFour", width: 100 },
+        { title: "", value: "daySix", width: 100 },
+        { title: "", value: "daySeven", width: 100 },
       ],
       tableList: [
         {

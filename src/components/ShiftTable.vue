@@ -11,7 +11,7 @@
       <tr
         :class="[0, 1].includes(index) ? 'table-row-yellow' : 'table-row-blue'"
       >
-        <td style="width: 300px">
+        <td style="width: 250px">
           <div
             style="display: flex; flex-direction: column; align-items: center"
           >
